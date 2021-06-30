@@ -27,13 +27,20 @@ Blog_Comment.init(
         key: 'id',
       },
     },
+    blog_post_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'blog_post',
+        key: 'id',
+      }
+    }
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'blogComment',
+    modelName: 'blog_comment',
   }
 );
 
