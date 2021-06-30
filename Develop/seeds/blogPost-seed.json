@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Test Post 1",
+    "content": "Checking to see that Test Post 1 works.",
+    "user_id": "1"
+  },
+  {
+    "title": "Test Post 2",
+    "content": "Checking to see that Test Post 2 works.",
+    "user_id": "2"
+  },
+  {
+    "title": "Test Post 3",
+    "content": "Checking to see that Test Post 3 works.",
+    "user_id": "3"
+  },
+  {
+    "title": "Test Post 4",
+    "content": "Checking to see that Test Post 4 works.",
+    "user_id": "1"
+  }
+]
