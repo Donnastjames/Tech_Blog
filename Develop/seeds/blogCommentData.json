@@ -1,8 +1,12 @@
 [
   {
     "comment": "Test post 2 is working just fine!",
-    "content": "Checking to see that Test Post 2 works.",
     "user_id": "1",
+    "blog_post_id": "2"
+  },
+  {
+    "comment": "Test post 2 is working even better!",
+    "user_id": "3",
     "blog_post_id": "2"
   }
 ]
