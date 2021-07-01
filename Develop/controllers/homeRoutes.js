@@ -32,23 +32,32 @@ router.get('/', async (req, res) => {
   }
 });
 
-/* These were copied out of a class activity
-   and will be left here to use as templates later ...
-router.get('/project/:id', async (req, res) => {
+router.get('/blogPost/:id', async (req, res) => {
+  console.log('homeRoutes GET blogPost/:id called with req.session:', JSON.stringify(req.session, null, 2));
+  console.log('req.params:\n', JSON.stringify(req.params, null, 2));
   try {
-    const projectData = await Project.findByPk(req.params.id, {
+    // Get a particular blogPostData and join with user and comment data ...
+    const blogPostData = await Blog_Post.findByPk(req.params.id, {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['username'],
+        },
+        {
+          model: Blog_Comment,
+          // TODO: Need username(s) instead of user_id(s) with each Blog_Comment.
         },
       ],
     });
 
-    const project = projectData.get({ plain: true });
+    console.log('blogPostData:\n', JSON.stringify(blogPostData, null, 2));
 
-    res.render('project', {
-      ...project,
+    const blogPost = blogPostData.get({ plain: true });
+
+    console.log('blogPost:\n', JSON.stringify(blogPost, null, 2));
+
+    res.render('blogPost', {
+      ...blogPost,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -56,6 +65,8 @@ router.get('/project/:id', async (req, res) => {
   }
 });
 
+/* These were copied out of a class activity
+   and will be left here to use as templates later ...
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
   try {
