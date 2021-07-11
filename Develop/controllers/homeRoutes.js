@@ -31,28 +31,35 @@ router.get('/', async (req, res) => {
   }
 });
 
-/* These were copied out of a class activity
-   and will be left here to use as templates later ...
 // Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
+  console.log('GET /dashboard called');
+  console.log('req.session:\n', JSON.stringify(req.session, null, 2));
   try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
+    // Find the logged in user based on this session's user_id ...
+    const blogPostData = await Blog_Post.findAll({
+      where: { user_id: req.session.user_id },
+      include: [{ model: User, attributes: { exclude: ['password'] } }],
     });
 
-    const user = userData.get({ plain: true });
+    console.log('blogPostData:\n', JSON.stringify(blogPostData, null, 2));
 
-    res.render('profile', {
-      ...user,
+    const blogPosts = blogPostData.map(blogPost => blogPost.get({ plain: true }));
+
+    console.log('blogPosts:\n', JSON.stringify(blogPosts, null, 2));
+
+    // TODO: Getting away with using homepage.handlebars for now, but
+    // will need to change this, because the dashboard is supposed to allow
+    // adding a new Blog Post.  The homepage is not supposed to allow that ...
+    res.render('homepage', {
+      blogPosts,
       logged_in: true
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
-*/
+
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request back to the Home page ...
