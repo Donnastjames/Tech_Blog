@@ -64,4 +64,15 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+// https://expressjs.com/en/guide/error-handling.html
+router.get('/signUp', (req, res, next) => {
+  // If the user is already logged in go to next() with an error ...
+  if (req.session.logged_in) {
+    next(new Error("Can't visit /signUp when already logged in!"));
+    return;
+  }
+
+  res.render('signUp');
+});
+
 module.exports = router;
