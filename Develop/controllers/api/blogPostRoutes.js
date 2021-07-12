@@ -8,6 +8,19 @@ router.get('/', withAuth, async (req, res) => {
   });
 });
 
+router.post('/', withAuth, async (req, res) => {
+  try {
+    const newBlogPost = await Blog_Post.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
+
+    res.status(200).json(newBlogPost);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 router.get('/:id', withAuth, async (req, res) => {
   console.log('blogPostRoutes GET /:id called with req.session:', JSON.stringify(req.session, null, 2));
   console.log('req.params:\n', JSON.stringify(req.params, null, 2));
