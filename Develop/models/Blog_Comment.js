@@ -22,6 +22,7 @@ Blog_Comment.init(
     },
     user_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: 'user',
         key: 'id',
@@ -29,6 +30,7 @@ Blog_Comment.init(
     },
     blog_post_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: 'blog_post',
         key: 'id',
