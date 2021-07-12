@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Blog_Comment, Blog_Post, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
   console.log('blogPostRoutes GET /:id called with req.session:', JSON.stringify(req.session, null, 2));
   console.log('req.params:\n', JSON.stringify(req.params, null, 2));
   try {
@@ -21,7 +21,7 @@ router.get('/:id', async (req, res) => {
     console.log('blogPost:\n', JSON.stringify(blogPost, null, 2));
 
     res.render('blogPost', {
-      ...blogPost,
+      blogPost,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -29,7 +29,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.get('/:id/comments', async (req, res) => {
+router.get('/:id/comments', withAuth, async (req, res) => {
   console.log('blogPostRoutes GET /:id/comments called with req.session:', JSON.stringify(req.session, null, 2));
   console.log('req.params:\n', JSON.stringify(req.params, null, 2));
   try {
