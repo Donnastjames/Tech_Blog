@@ -19,9 +19,6 @@ router.get('/', withAuth, async (req, res) => {
 
     console.log('blogPosts:\n', JSON.stringify(blogPosts, null, 2));
 
-    // TODO: Getting away with using homepage.handlebars for now, but
-    // will need to change this, because the dashboard is supposed to allow
-    // adding a new Blog Post.  The homepage is not supposed to allow that ...
     res.render('dashboard', {
       blogPosts,
      logged_in: req.session.logged_in,

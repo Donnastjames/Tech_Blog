@@ -2,6 +2,12 @@ const router = require('express').Router();
 const { Blog_Comment, Blog_Post, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+router.get('/', withAuth, async (req, res) => {
+  res.render('newBlogPost', {
+    logged_in: req.session.logged_in,
+  });
+});
+
 router.get('/:id', withAuth, async (req, res) => {
   console.log('blogPostRoutes GET /:id called with req.session:', JSON.stringify(req.session, null, 2));
   console.log('req.params:\n', JSON.stringify(req.params, null, 2));
@@ -22,7 +28,7 @@ router.get('/:id', withAuth, async (req, res) => {
 
     res.render('blogPost', {
       blogPost,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -49,7 +55,7 @@ router.get('/:id/comments', withAuth, async (req, res) => {
 
     res.render('blogComments', {
       ...blogComments,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
