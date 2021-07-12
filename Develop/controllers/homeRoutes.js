@@ -25,6 +25,7 @@ router.get('/', async (req, res) => {
     // Pass serialized data and session flag into template
     res.render('homepage', { 
       blogPosts,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -53,7 +54,6 @@ router.get('/dashboard', withAuth, async (req, res) => {
     // adding a new Blog Post.  The homepage is not supposed to allow that ...
     res.render('homepage', {
       blogPosts,
-     // logged_in: true
      logged_in: req.session.logged_in,
     });
   } catch (err) {
