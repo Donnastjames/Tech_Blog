@@ -39,19 +39,6 @@ router.get('/:id', withAuth, async (req, res) => {
 
     console.log('blogPost:\n', JSON.stringify(blogPost, null, 2));
 
-    res.render('blogPost', {
-      blogPost,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get('/:id/comments', withAuth, async (req, res) => {
-  console.log('blogPostRoutes GET /:id/comments called with req.session:', JSON.stringify(req.session, null, 2));
-  console.log('req.params:\n', JSON.stringify(req.params, null, 2));
-  try {
     // Get all comments that pertain to the given blog_post_id ...
     const blogCommentData = await Blog_Comment.findAll({
       where: { blog_post_id: req.params.id },
@@ -66,8 +53,9 @@ router.get('/:id/comments', withAuth, async (req, res) => {
 
     console.log('blogComments:\n', JSON.stringify(blogComments, null, 2));
 
-    res.render('blogComments', {
-      ...blogComments,
+    res.render('blogPost', {
+      blogPost,
+      blogComments,
       logged_in: req.session.logged_in,
     });
   } catch (err) {

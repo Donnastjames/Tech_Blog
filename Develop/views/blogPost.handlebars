@@ -1,0 +1,29 @@
+
+<div class="project">
+  <div>
+    <h2>
+      {{blogPost.title}}
+    </h2>
+    <p>Created by {{blogPost.user.username}} on {{format_date blogPost.date_created}}</p>
+  </div>
+  <div class="col-md-7">
+    <p>
+      {{blogPost.content}}
+    </p>
+  </div>
+</div>
+
+{{#if blogComments.length}}
+  {{#each blogComments as |blogComment| }}
+  <div class="project">
+    <div class="col-md-7">
+      <p>{{blogComment.comment}}, </p>
+      <p>-{{blogComment.user.username}}, {{format_date blogComment.date_created}}</p>
+    </div>
+  </div>
+  {{/each}}
+{{/if}}
+
+<script src=""></script>
+
+<script src=""></script>

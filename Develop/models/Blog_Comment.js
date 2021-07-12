@@ -17,7 +17,7 @@ Blog_Comment.init(
     },
     date_created: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
       defaultValue: DataTypes.NOW,
     },
     user_id: {
