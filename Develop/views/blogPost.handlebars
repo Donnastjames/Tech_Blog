@@ -1,7 +1,7 @@
 <div class="project">
   <div>
     <h2>
-      {{blogPost.title}}
+      <a href="/api/blogPosts/{{blogPost.id}}/update">{{blogPost.title}}</a>
     </h2>
     <p>Created by {{blogPost.user.username}} on {{format_date blogPost.date_created}}</p>
   </div>

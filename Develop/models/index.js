@@ -20,6 +20,7 @@ Blog_Comment.belongsTo(User, {
 
 Blog_Post.hasMany(Blog_Comment, {
   foreignKey: 'blog_post_id',
+  onDelete: 'cascade',
 });
 
 Blog_Comment.belongsTo(Blog_Post, {
