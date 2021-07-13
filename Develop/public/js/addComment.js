@@ -15,8 +15,8 @@ const saveNewCommentHandler = async (event) => {
     });
 
     if (response.ok) {
-      // If successful, redirect the browser to the dashboard
-      document.location.assign("/dashboard");
+      // If successful, redirect the browser back to the same Blog Post
+      document.location.assign(`/api/blogPosts/${blog_post_id}`);
     } else {
       alert(response.statusText);
     }
