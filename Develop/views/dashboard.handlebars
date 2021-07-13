@@ -1,14 +1,14 @@
 {{#if blogPosts.length}}
   {{#each blogPosts as |blogPost| }}
-  <div class="project">
-    <div>
+  <div class="card w-100">
+    <div class="card-header">
       <h2>
         <a href="/api/blogPosts/{{blogPost.id}}">{{blogPost.title}}</a>
       </h2>
       <p>Created by {{blogPost.user.username}} on {{format_date blogPost.date_created}}</p>
     </div>
-    <div class="col-md-7">
-      <p>
+    <div class="card-body">
+      <p class="card-text">
         {{blogPost.content}}
       </p>
     </div>
@@ -16,7 +16,7 @@
   {{/each}}
 {{/if}}
 
-<button class="btn btn-primary" id="newPostBtn" type="click">+New Post</button>
+<button class="btn btn-primary btn-lg btn-block" style="margin: 18px" id="newPostBtn" type="click">+ New Post</button>
   
 
 <script src="/js/dashboard.js"></script>
