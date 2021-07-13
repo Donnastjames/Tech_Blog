@@ -1,9 +1,8 @@
 const router = require('express').Router();
-const { Blog_Comment, Blog_Post, User } = require('../models');
+const { Blog_Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
-  console.log('homeRoutes GET / called with req.session:', JSON.stringify(req.session, null, 2));
   try {
     // Get all blogPostData and JOIN with user data
     const blogPostData = await Blog_Post.findAll({
@@ -15,12 +14,8 @@ router.get('/', async (req, res) => {
       ],
     });
 
-    console.log('blogPostData:\n', JSON.stringify(blogPostData, null, 2));
-
     // Serialize data so the template can read it
     const blogPosts = blogPostData.map(blogPost => blogPost.get({ plain: true }));
-
-    console.log('blogPosts:\n', JSON.stringify(blogPosts, null, 2));
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
