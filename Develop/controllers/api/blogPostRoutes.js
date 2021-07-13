@@ -28,7 +28,7 @@ router.get('/:id', withAuth, async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['username'],
+          attributes: ['username', 'id'],
         },
       ],
     });
@@ -48,6 +48,7 @@ router.get('/:id', withAuth, async (req, res) => {
     res.render('blogPost', {
       blogPost,
       blogComments,
+      user_owned_post: req.session.user_id === blogPost.user.id,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
