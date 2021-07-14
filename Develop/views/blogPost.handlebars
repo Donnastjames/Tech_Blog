@@ -20,7 +20,15 @@
   {{#each blogComments as |blogComment| }}
   <div class="card w-100">
     <div class="card-body">
-      <p>{{blogComment.comment}}</p>
+      <p>
+        {{#if ../logged_in}}
+        <a href="/api/blogComments/{{blogComment.id}}/update">
+          {{blogComment.comment}}
+        </a>
+        {{else}}
+        {{blogComment.comment}}
+        {{/if}}
+      </p>
       <p class="text-small">-{{blogComment.user.username}}, {{format_date blogComment.date_created}}</p>
     </div>
   </div>
@@ -36,11 +44,11 @@
         <textarea type='text' rows='5' class='form-control' id='newBlogComment' style='width: inherit; font-size: larger'></textarea>
       </div>
       
-      <button class='btn btn-light btn-lg btn-block submit' id='createNewComment' type='click'>Submit</button>
+      <button class='btn btn-light btn-lg btn-block submit' id='createNewComment' type='click' data-id='{{blogPost.id}}''>Submit</button>
       
     </form>
   </div>
 </div>
-{{/if}}
 
-<script src="/js/addComment.js"></script>
+<script src="/js/newComment.js"></script>
+{{/if}}

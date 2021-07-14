@@ -1,14 +1,13 @@
 const saveNewCommentHandler = async (event) => {
   event.preventDefault();
   // Collect values from the /newComment form
-  const url = window.location.href;
-  const blog_post_id = url.substring(url.lastIndexOf('/') + 1);
+  const blog_post_id = event.target.getAttribute("data-id");
   const comment = document.querySelector("#newBlogComment").value.trim();
 
   // title and content are required to create a new blogPost
   if (comment) {
     // Send a POST request to the API endpoint
-    const response = await fetch("/api/newComment", {
+    const response = await fetch("/api/blogComments", {
       method: "POST",
       body: JSON.stringify({ comment, blog_post_id }),
       headers: { "Content-Type": "application/json" },

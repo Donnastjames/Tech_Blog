@@ -1,0 +1,21 @@
+<div class='card w-100'>
+  <div class='card-header'>
+    <h2>Edit Comment</h2>
+    <form class='form updateCommentForm' data-id='{{blogComment.id}}'>
+      <div class='form-group'>
+        <label for='blog-comment'>Comment</label>
+        <textarea type='text' rows='5' class='form-control' id='blogComment' style='width: inherit; font-size: larger'>{{blogComment.comment}}</textarea>
+      </div>
+
+      {{#if user_owned_comment}}
+      <button class='btn btn-light btn-lg btn-block submit' id='update-comment-btn' data-id='{{blogComment.id}}' type='submit'>Update Comment</button>
+      <button class='btn btn-light btn-lg btn-block submit' id='delete-comment-btn' data-id='{{blogComment.id}}' type='click'>Delete</button>
+      {{else}}
+      <div>Can't update or delete this because you don't own this comment.</div>
+      {{/if}}
+    </form>
+    
+  </div>
+</div>
+
+<script src='/js/updateComment.js'></script>

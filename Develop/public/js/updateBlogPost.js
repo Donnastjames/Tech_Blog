@@ -1,9 +1,6 @@
 const updateFormHandler = async (event) => {
   event.preventDefault();
-  const url = window.location.href;
-  // https://stackoverflow.com/questions/3730359/get-id-from-url-with-jquery
-  const urlParts = url.split('/');
-  const id = urlParts[urlParts.length - 2];
+  const id = event.target.getAttribute("data-id");
   const title = document.getElementById("blogPostTitle").value.trim();
   const content = document.getElementById("blogPostContent").value.trim();
 
