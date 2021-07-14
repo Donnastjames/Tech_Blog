@@ -1,20 +1,21 @@
-<div class='container-fluid'>
-  <div class='row'>
-    <div class='col-md-5'>
-      <h2>Edit Post</h2>
-      <form class='form updateBlogPostForm'>
-        <div class='form-group'>
-          <label for='blog-post-title'>Title</label>
-          <input type='text' class='form-control' id='blogPostTitle' value='{{blogPost.title}}'>
-        </div>
-        <div class='form-group'>
-          <label for='blog-post-content'>Content</label>
-          <input type='text' class='form-control' id='blogPostContent' value='{{blogPost.content}}'>
-        </div>
-        <button class='btn btn-primary submit' id='update-post-btn' data-id='{{blogPost.id}}' type='submit'>Update Post</button>
-        <button class='btn btn-warning submit' id='delete-post-btn' data-id='{{blogPost.id}}' type='click'>Delete</button>
-      </form>
-    </div>
+<div class='card w-100'>
+  <div class='card-header'>
+    <h2>Edit Post</h2>
+    <form class='form updateBlogPostForm'>
+      <div class='form-group'>
+        <label for='blog-post-title'>Title</label>
+        <textarea type='text' rows='2' class='form-control' id='blogPostTitle' style='width: inherit; font-size: larger'>{{blogPost.title}}</textarea>
+      </div>
+      <div class='form-group'>
+        <label for='blog-post-content'>Content</label>
+        <textarea type='text' rows='5' class='form-control' id='blogPostContent' style='width: inherit; font-size: larger'>{{blogPost.content}}</textarea>
+      </div>
+
+      <button class='btn btn-light btn-lg btn-block submit' id='update-post-btn' data-id='{{blogPost.id}}' type='submit'>Update Post</button>
+      <button class='btn btn-light btn-lg btn-block submit' id='delete-post-btn' data-id='{{blogPost.id}}' type='click'>Delete</button>
+
+    </form>
+    
   </div>
 </div>
 
