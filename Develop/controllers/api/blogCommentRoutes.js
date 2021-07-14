@@ -45,9 +45,6 @@ router.get('/:id/update', withAuth, async (req, res) => {
 });
 
 router.put('/:id/update', withAuth, async (req, res) => {
-  console.log('blogComments PUT /:id/update called!');
-  console.log('req.params:', JSON.stringify(req.params, null, 2));
-  console.log('req.body:', JSON.stringify(req.body, null, 2));
   try {
     const updateComment = await Blog_Comment.update(req.body, {
       where: {
