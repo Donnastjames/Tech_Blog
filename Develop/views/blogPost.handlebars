@@ -27,19 +27,17 @@
   {{/each}}
 {{/if}}
 
-<div class='container-fluid'>
-  <div class='row'>
-    <div class='col-md-5'>
-      <h2>Comment</h2>
-      <form class='form newCommentForm'>
-        <div class='form-group'>
-          <input type='text' class='form-control' id='newBlogComment' value='{{blog_comment.comment}}'>
-        </div>
-        
-        <button class='btn btn-primary btn-lg btn-block submit' style="margin: 18px" id='createNewComment' type='click'>Submit</button>
-        
-      </form>
-    </div>
+<div class='card w-100'>
+  <div class='card-header'>
+    <h2>Comment</h2>
+    <form class='form newCommentForm'>
+      <div class='form-group'>
+        <input type='text' class='form-control' id='newBlogComment' style='width: inherit; font-size: larger' value='{{blog_comment.comment}}'>
+      </div>
+      
+      <button class='btn btn-light btn-lg btn-block submit' id='createNewComment' type='click'>Submit</button>
+      
+    </form>
   </div>
 </div>
 
