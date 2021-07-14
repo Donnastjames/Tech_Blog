@@ -25,3 +25,10 @@ const saveNewCommentHandler = async (event) => {
 document
   .querySelector(".newCommentForm")
   .addEventListener("click", saveNewCommentHandler);
+
+// https://stackoverflow.com/questions/3730359/get-id-from-url-with-jquery
+// This newComment.js file is loaded only when viewing a Blog Post,
+// so we can store the last viewed Blog Post id in local storage ...
+const url = window.location.href;
+const lastViewedBlogPostId = url.substring(url.lastIndexOf('/') + 1);
+localStorage.setItem('lastViewedBlogPostId', lastViewedBlogPostId);

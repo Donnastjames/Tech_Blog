@@ -13,7 +13,12 @@ const updateCommentHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.assign(`/api/blogPosts/${id}`);
+      const lastViewedBlogPostId = localStorage.getItem('lastViewedBlogPostId');
+      if (lastViewedBlogPostId) {
+        document.location.assign(`/api/blogPosts/${lastViewedBlogPostId}`);
+      } else {
+        document.location.assign('/dashboard');
+      }
     } else {
       alert("Failed to update comment!");
     }
@@ -29,7 +34,12 @@ const deleteCommentHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.assign(`/api/blogPosts/${id}`);
+      const lastViewedBlogPostId = localStorage.getItem('lastViewedBlogPostId');
+      if (lastViewedBlogPostId) {
+        document.location.assign(`/api/blogPosts/${lastViewedBlogPostId}`);
+      } else {
+        document.location.assign('/dashboard');
+      }
     } else {
       alert("Failed to delete comment");
     }
