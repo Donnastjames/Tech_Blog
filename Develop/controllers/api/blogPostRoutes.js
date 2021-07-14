@@ -21,7 +21,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/:id', withAuth, async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     // Get a particular blogPostData and join with user and comment data ...
     const blogPostData = await Blog_Post.findByPk(req.params.id, {
