@@ -2,7 +2,7 @@
   <div class="card-header">
     <h2>
       {{#if user_owned_post}}
-      <a href="/api/blogPosts/{{blogPost.id}}/update">{{blogPost.title}}</a>
+      <a href="/api/blogPosts/{{blogPost.id}}/update" style="color: #e3e4e3">{{blogPost.title}}</a>
       {{else}}
       {{blogPost.title}}
       {{/if}}
