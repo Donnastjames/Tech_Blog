@@ -27,6 +27,10 @@ This server side application is deployed and can be accessed through Heroku.
 * `Express-handlebars`
 * `Connect-session-sequelize`
 
+## Mock Up
+
+![Tech Blog giphy](./assets/TechBlog.gif)
+
 ## Link to Deployed Application
 
 [Link to the deployed application in Heroku](https://mvc-cms-style-tech-blog.herokuapp.com/)
