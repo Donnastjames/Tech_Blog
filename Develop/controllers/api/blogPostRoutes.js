@@ -5,6 +5,7 @@ const withAuth = require('../../utils/auth');
 router.get('/', withAuth, async (req, res) => {
   res.render('newBlogPost', {
     logged_in: req.session.logged_in,
+    page_description: 'Your Dashboard',
   });
 });
 
@@ -104,6 +105,7 @@ router.get('/:id/update', withAuth, async (req, res) => {
     res.render('updateBlogPost', {
       blogPost,
       logged_in: req.session.logged_in,
+      page_description: 'Your Dashboard',
     });
   } catch (err) {
     res.status(500).json(err);

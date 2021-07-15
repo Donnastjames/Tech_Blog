@@ -38,6 +38,7 @@ router.get('/:id/update', withAuth, async (req, res) => {
       blogComment,
       user_owned_comment: req.session.user_id === blogComment.user.id,
       logged_in: req.session.logged_in,
+      page_description: 'Your Dashboard',
     })
   } catch (err) {
     res.status(500).json(err);
