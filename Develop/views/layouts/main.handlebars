@@ -20,7 +20,13 @@
     {{/if}}
   </nav>
   <header>
-    <h1>The Tech Blog</h1>
+    <h1>
+      {{#if page_description}}
+        {{page_description}}
+      {{else}}
+        The Tech Blog
+      {{/if}}
+    </h1>
   </header>
   <main>
     <div style="width: 95%">

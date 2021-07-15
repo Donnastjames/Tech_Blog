@@ -16,6 +16,7 @@ router.get('/', withAuth, async (req, res) => {
     res.render('dashboard', {
       blogPosts,
       logged_in: req.session.logged_in,
+      page_description: 'Your Dashboard',
     });
   } catch (err) {
     res.status(500).json(err);
