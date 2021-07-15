@@ -29,7 +29,7 @@ This server side application is deployed and can be accessed through Heroku.
 
 ## Mock Up
 
-![Tech Blog giphy](./assets/TechBlog.gif)
+![Tech Blog giphy](./Assets/TechBlog.gif)
 
 ## Link to Deployed Application
 
