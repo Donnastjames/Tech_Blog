@@ -10,17 +10,17 @@
 </head>
 
 <body>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/dashboard">Dashboard</a>
+  <nav class="navbar navbar-expand-lg" style="font-size: x-large">
+    <a href="/" class="navbar-brand">Home</a>
+    <a href="/dashboard" class="navbar-brand">Dashboard</a>
     {{#if logged_in}}
-    <a id="logout" href="/">Logout</a>
+    <a id="logout" href="/" class="navbar-brand">Logout</a>
     {{else}}
-    <a href="/login">Login</a>
+    <a href="/login" class="navbar-brand">Login</a>
     {{/if}}
   </nav>
   <header>
-    <h1>
+    <h1 style="text-align: initial">
       {{#if page_description}}
         {{page_description}}
       {{else}}
